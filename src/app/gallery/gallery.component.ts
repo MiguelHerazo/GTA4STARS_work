@@ -31,27 +31,11 @@ export class GalleryComponent {
 
   currentIndex = 0;
 
-  nextSlide() {
-    this.currentIndex = (this.currentIndex + 1) % this.cars.length;
+  scrollLeft(carousel: HTMLElement) {
+    carousel.scrollBy({ left: -300, behavior: 'smooth' });
   }
 
-  prevSlide() {
-    this.currentIndex = (this.currentIndex - 1 + this.cars.length) % this.cars.length;
-  }
-
-  goToSlide(index: number) {
-    this.currentIndex = index;
-  }
-
-  getBoxClass(index: number): string {
-    if (index === this.currentIndex) {
-      return 'box active';
-    } else if (index === (this.currentIndex - 1 + this.cars.length) % this.cars.length) {
-      return 'box prev';
-    } else if (index === (this.currentIndex + 1) % this.cars.length) {
-      return 'box next';
-    } else {
-      return 'box hidden';
-    }
+  scrollRight(carousel: HTMLElement) {
+    carousel.scrollBy({ left: 300, behavior: 'smooth' });
   }
 }

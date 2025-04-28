@@ -1,32 +1,10 @@
-<section class="gallery">
-  <h1 class="heading">Supercarros GTA V</h1>
-
-  <div class="gallery-slider">
-    <div class="arrow left" (click)="prevSlide()">&#10094;</div>
-
-    <div class="gallery-wrapper">
-      <div *ngFor="let car of cars; let i = index" [ngClass]="getBoxClass(i)">
-        <img [src]="car.img" [alt]="car.name">
-        <div *ngIf="i === currentIndex">
-          <h3>{{ car.name }}</h3>
-          <div class="details">
-            <p><strong>Velocidad Máxima:</strong> {{ car.maxSpeed }}</p>
-            <p><strong>Combustible:</strong> {{ car.fuel }}</p>
-            <p><strong>Año:</strong> {{ car.year }}</p>
-            <p><strong>Precio:</strong> {{ car.price | currency }}</p>
-          </div>
-        </div>
-      </div>
+<div class="gallery-wrapper" #carousel>
+  <div class="car-card" *ngFor="let car of cars">
+    <img [src]="car.img" [alt]="car.name">
+    <div class="car-info">
+      <h3>{{ car.name }}</h3>
+      <p>{{ car.year }} · {{ car.fuel }}</p>
+      <p><strong>{{ car.price | currency:'USD' }}</strong></p>
     </div>
-
-    <div class="arrow right" (click)="nextSlide()">&#10095;</div>
   </div>
-
-  <div class="gallery-indicators">
-    <span *ngFor="let car of cars; let i = index"
-          (click)="goToSlide(i)"
-          [class.active]="i === currentIndex"></span>
-  </div>
-</section>
-
-
+</div>
