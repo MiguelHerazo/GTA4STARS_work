@@ -1,0 +1,135 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #111;
+    color: #fff;
+  }
+  
+  /* Header */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #222;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .navbar {
+    font-family: "Krona One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  .nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .nav-links li a:hover {
+    color: #ffcc00;
+  }
+  
+  /* Hero */
+  .hero {
+    background-image: url('/assets/imgs/banner.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  .hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .hero-content p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+  }
+  
+  .hero-content button {
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    background-color: #ffcc00;
+    border: none;
+    color: #111;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .hero-content button:hover {
+    background-color: #e6b800;
+  }
+  
+  /* Modelos */
+  .modelos {
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+  
+  .modelos h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .modelos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 2rem 0;
+  }
+  
+  .modelo-card {
+    background-color: #1a1a1a;
+    padding: 1rem;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+  }
+  
+  .modelo-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .modelo-card img {
+    width: 100%;
+    border-radius: 8px;
+  }
+  
+  .modelo-card h3 {
+    margin-top: 1rem;
+  }
+  
+  /* Footer */
+  footer {
+    background-color: #222;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+  }
+  
