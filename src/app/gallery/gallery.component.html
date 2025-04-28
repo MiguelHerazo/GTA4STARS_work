@@ -1,10 +1,25 @@
-<div class="gallery-wrapper" #carousel>
-  <div class="car-card" *ngFor="let car of cars">
-    <img [src]="car.img" [alt]="car.name">
-    <div class="car-info">
-      <h3>{{ car.name }}</h3>
-      <p>{{ car.year }} · {{ car.fuel }}</p>
-      <p><strong>{{ car.price | currency:'USD' }}</strong></p>
+<div class="gallery-container">
+  <div class="gallery-wrapper">
+    <button class="nav-button left" (click)="prev()">&#8249;</button>
+
+    <div *ngFor="let car of cars; let i = index" [ngClass]="getBoxClass(i)">
+      <img [src]="car.img" [alt]="car.name">
     </div>
+
+    <button class="nav-button right" (click)="next()">&#8250;</button>
+  </div>
+
+  <div class="details" *ngIf="cars.length">
+    <h2>{{ cars[currentIndex].name }}</h2>
+    <p><strong>Velocidad Máxima:</strong> {{ cars[currentIndex].maxSpeed }}</p>
+    <p><strong>Combustible:</strong> {{ cars[currentIndex].fuel }}</p>
+    <p><strong>Año:</strong> {{ cars[currentIndex].year }}</p>
+    <p><strong>Precio:</strong> {{ cars[currentIndex].price | currency:'USD' }}</p>
+  </div>
+
+  <div class="dots">
+    <span *ngFor="let car of cars; let i = index" 
+          [class.active]="i === currentIndex"
+          (click)="currentIndex = i"></span>
   </div>
 </div>

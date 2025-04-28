@@ -1,67 +1,107 @@
 .gallery-container {
-  position: relative;
   width: 90%;
-  margin: auto;
-  padding: 20px;
-  overflow: hidden;
+  margin: 0 auto;
   text-align: center;
 }
 
 .gallery-wrapper {
+  position: relative;
   display: flex;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  gap: 20px;
-  padding: 20px 0;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  height: 400px;
 }
 
-.car-card {
-  flex: 0 0 auto;
-  width: 250px;
-  scroll-snap-align: center;
-  background: #fff;
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  transition: transform 0.3s ease;
-  cursor: pointer;
+.box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 350px;
+  height: 250px;
+  transform: translate(-50%, -50%) scale(0.5);
+  opacity: 0;
+  transition: transform 0.8s ease, opacity 0.8s ease;
+  pointer-events: none;
 }
 
-.car-card:hover {
-  transform: scale(1.05);
-}
-
-.car-card img {
+.box img {
   width: 100%;
-  height: 150px;
-  object-fit: cover;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 12px;
 }
 
-.car-info {
-  padding: 10px;
+/* El carro actual */
+.box.active {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+  z-index: 3;
+  pointer-events: auto;
+}
+
+/* El carro anterior */
+.box.prev {
+  transform: translate(-150%, -50%) scale(0.8);
+  opacity: 0.5;
+  z-index: 2;
+}
+
+/* El carro siguiente */
+.box.next {
+  transform: translate(50%, -50%) scale(0.8);
+  opacity: 0.5;
+  z-index: 2;
+}
+
+/* Carros que están más lejos pero aún participan suavemente */
+.box.hidden {
+  transform: translate(200%, -50%) scale(0.5);
+  opacity: 0;
+  z-index: 1;
 }
 
 .nav-button {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 50%;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0,0,0,0.5);
-  border: none;
-  font-size: 2rem;
-  color: #fff;
-  padding: 10px;
-  border-radius: 50%;
-  cursor: pointer;
-  z-index: 10;
+  z-index: 5;
 }
 
-.left {
+.nav-button.left {
   left: 10px;
 }
 
-.right {
+.nav-button.right {
   right: 10px;
+}
+
+.details {
+  margin-top: 20px;
+}
+
+.dots {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.dots span {
+  height: 10px;
+  width: 10px;
+  margin: 0 5px;
+  background-color: gray;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.dots span.active {
+  background-color: orange;
 }

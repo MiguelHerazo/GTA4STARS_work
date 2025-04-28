@@ -31,11 +31,23 @@ export class GalleryComponent {
 
   currentIndex = 0;
 
-  scrollLeft(carousel: HTMLElement) {
-    carousel.scrollBy({ left: -300, behavior: 'smooth' });
+  prev() {
+    this.currentIndex = (this.currentIndex - 1 + this.cars.length) % this.cars.length;
   }
 
-  scrollRight(carousel: HTMLElement) {
-    carousel.scrollBy({ left: 300, behavior: 'smooth' });
+  next() {
+    this.currentIndex = (this.currentIndex + 1) % this.cars.length;
+  }
+
+  getBoxClass(index: number): string {
+    if (index === this.currentIndex) {
+      return 'box active';
+    } else if (index === (this.currentIndex - 1 + this.cars.length) % this.cars.length) {
+      return 'box prev';
+    } else if (index === (this.currentIndex + 1) % this.cars.length) {
+      return 'box next';
+    } else {
+      return 'box hidden';
+    }
   }
 }
