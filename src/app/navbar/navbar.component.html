@@ -1,3 +1,25 @@
-<section>
-    <p>navbar works!</p>
-</section>
+<header class="header">
+    <!-- Icono de menú hamburguesa (solo visible en móvil) -->
+    <div id="menu-btn" class="fa-solid fa-bars" (click)="toggleMenu()"></div>
+  
+    <!-- Logo -->
+    <a routerLink="/" class="logo">GTA4<span>STARS</span></a>
+  
+    <!-- Menú de navegación -->
+    <nav class="navbar" [class.active]="menuActive">
+      <ul class="nav-links">
+        <li><a routerLink="/home" (click)="toggleMenu()">Inicio</a></li>
+        <li><a routerLink="/vehicles" (click)="toggleMenu()">Vehículos</a></li>
+        <li><a routerLink="/services" (click)="toggleMenu()">Servicios</a></li>
+        <li><a routerLink="/featured" (click)="toggleMenu()">Destacados</a></li>
+        <li><a routerLink="/reviews" (click)="toggleMenu()">Reseñas</a></li>
+        <li><a routerLink="/contact" (click)="toggleMenu()">Contacto</a></li>
+      </ul> 
+      <!-- Botón login visible en todas las resoluciones -->
+    </nav>
+
+    <div class="login-wrapper">
+        <button type="button" class="btn login-btn" (click)="login()">Iniciar Sesión</button>
+    </div>
+  </header>
+  
