@@ -1,0 +1,28 @@
+<section class="reviews" id="reviews">
+    <h1 class="heading">Reseñas de <span>Clientes</span></h1>
+  
+    <div class="review-slider">
+      <button class="nav-btn left" (click)="scrollLeft()">
+        <i class="fa-solid fa-angle-left"></i>
+      </button>
+  
+      <div class="review-wrapper" #reviewWrapper>
+        <div class="box" *ngFor="let review of reviews">
+          <img [src]="review.img" [alt]="review.name" />
+          <div class="content">
+            <p>{{ review.comment }}</p>
+            <h3>{{ review.name }}</h3>
+            <div class="stars">
+              <i class="fa-solid fa-star" *ngFor="let _ of [].constructor(review.stars)"></i>
+              <i class="fa-solid fa-star-half-stroke" *ngIf="review.halfStar"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <button class="nav-btn right" (click)="scrollRight()">
+        <i class="fa-solid fa-angle-right"></i>
+      </button>
+    </div>
+  </section>
+  

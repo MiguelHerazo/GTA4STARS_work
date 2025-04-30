@@ -1,0 +1,84 @@
+.reviews {
+    padding: 2rem;
+    background-color: #111;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .heading {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+  }
+  
+  .review-slider {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .review-wrapper {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 1.5rem;
+    padding: 1rem 0;
+  }
+  
+  .review-wrapper::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .box {
+    min-width: 250px;  /* Ajusta el tamaño de las tarjetas */
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    padding: 1rem;
+    flex-shrink: 0;
+    text-align: center;
+    width: 250px;  /* Asegura que las tarjetas no sean más grandes que esto */
+  }
+  
+  .box img {
+    width: 100%;
+    max-width: 250px; /* Controlamos el tamaño máximo */
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover; /* Mantiene las proporciones de la imagen */
+    margin-bottom: 1rem;
+  }
+  
+  .stars i {
+    color: #ffcc00;
+  }
+  
+  .nav-btn {
+    background: rgba(0, 0, 0, 0.5); /* Add a semi-transparent background for better visibility */
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 10;
+    padding: 0.5rem 1rem; /* Adjust padding for better click area */
+    border-radius: 50%; /* Make buttons circular */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.nav-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Highlight on hover */
+}
+
+.nav-btn.left {
+    position: absolute;
+    left: 1rem; /* Add spacing from the edge */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Ensure proper centering */
+}
+
+.nav-btn.right {
+    position: absolute;
+    right: 1rem; /* Add spacing from the edge */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Ensure proper centering */
+}
